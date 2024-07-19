@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 1</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+    }
+    .control-button {
+    position: absolute;
+    bottom: 20px; /* Ajustamos la distancia desde abajo */
+    background-color: #ba0c2f;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+#next-button {
+    right: 0px;
+}
+#previous-button {
+    left: 10px;
+}
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+    }
+    .question {
+        margin-bottom: 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .question h3 {
+        margin-top: 0;
+    }
+    .options {
+        margin-top: 10px;
+    }
+    .options label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .button-calificar {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    .button-calificar:hover {
+        background-color: #45a049;
+    }
+    .resultado {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .correcto {
+        color: #4CAF50;
+    }
+</style>
+</head>
+<body>
+    <h1>Quiz</h1>
+
+    <div class="question">
+        <h3>¿Dónde nació Ronald Acuña Jr.?</h3>
+        <div class="options">
+            <label><input type="radio" name="q1" value="La Sabana"> La Sabana</label>
+            <label><input type="radio" name="q1" value="Maracay"> Maracay</label>
+            <label><input type="radio" name="q1" value="Caracas"> Caracas</label>
+            <label><input type="radio" name="q1" value="Barquisimeto"> Barquisimeto</label>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button onclick="calificar()" class="button-calificar">Calificar respuesta</button>
+    </div>
+
+    <p id="resultado" class="resultado"></p>
+
+    <button id="next-button" class="control-button">Siguiente</button>
+    <button id="previous-button" class="control-button">Anterior</button>
+
+    
+    <script>
+        function calificar() {
+            let respuesta = document.querySelector('input[name="q1"]:checked');
+            let resultado = document.getElementById("resultado");
+
+            if (respuesta !== null && respuesta.value === "La Sabana") {
+                resultado.innerHTML = "¡Respuesta correcta!";
+                resultado.classList.add('correcto');
+            } else {
+                resultado.innerHTML = "Respuesta incorrecta. Inténtalo de nuevo.";
+                resultado.classList.remove('correcto');
+            }
+        }
+
+        const nextButton = document.getElementById('next-button');
+  const previousButton = document.getElementById('previous-button');
+
+  nextButton.addEventListener('click', function() {
+      window.location.href = 'Video2.html';
+  });
+
+  previousButton.addEventListener('click', function() {
+      window.location.href = 'Video.html'; })
+    </script>
+  </div>
+</body>
+</html>

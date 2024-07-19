@@ -45,7 +45,7 @@ h1 {
 button {
     padding: 15px 30px;
     font-size: 1.5em;
-    background-color: #ff6347;
+    background-color: #ba0c2f;
     color: white;
     border: none;
     cursor: pointer;
@@ -54,7 +54,7 @@ button {
 }
 
 button:hover {
-    background-color: #e5533d;
+    background-color: #ba0c2f;
 }
 
 @keyframes pulse {

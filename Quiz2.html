@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz 1</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+        
+    }
+    .control-button {
+    position: absolute;
+    bottom: 20px; /* Ajustamos la distancia desde abajo */
+    background-color: #ba0c2f;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+#next-button {
+    right: 0px;
+}
+#previous-button {
+    left: 10px;
+}
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+    }
+    .question {
+        margin-bottom: 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .question h3 {
+        margin-top: 0;
+    }
+    .options {
+        margin-top: 10px;
+    }
+    .options label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .button-calificar {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    .button-calificar:hover {
+        background-color: #45a049;
+    }
+    .resultado {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .correcto {
+        color: #4CAF50;
+    }
+</style>
+</head>
+<body>
+    <h1>Quiz</h1>
+
+    <div class="question">
+        <h3>1. ¿En qué año debutó Ronald en las Grandes Ligas con los Bravos de Atlanta?</h3>
+        <div class="options">
+            <label><input type="radio" name="q1" value="2015"> 2015</label>
+            <label><input type="radio" name="q1" value="2018"> 2018</label>
+            <label><input type="radio" name="q1" value="2020"> 2020</label>
+            <label><input type="radio" name="q1" value="2017"> 2017</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>2. ¿Qué posición juega actualmente Ronald Acuña Jr.?</h3>
+        <div class="options">
+            <label><input type="radio" name="q2" value="Short Stop"> Short Stop</label>
+            <label><input type="radio" name="q2" value="Receptor"> Receptor</label>
+            <label><input type="radio" name="q2" value="Primera base"> Primera base</label>
+            <label><input type="radio" name="q2" value="Right Fielder"> Right Fielder</label>
+        </div>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="calificar()" class="button-calificar">Calificar respuestas</button>
+    </div>
+
+    <p id="resultado" class="resultado"></p>
+
+    <button id="next-button" class="control-button">Siguiente</button>
+    <button id="previous-button" class="control-button">Anterior</button>
+
+    <script>
+        function calificar() {
+            let respuestasCorrectas = 0;
+
+            // Verificar la pregunta 1
+            let respuesta1 = document.querySelector('input[name="q1"]:checked');
+            if (respuesta1 !== null && respuesta1.value === "2018") {
+                respuestasCorrectas++;
+            }
+
+            // Verificar la pregunta 2
+            let respuesta2 = document.querySelector('input[name="q2"]:checked');
+            if (respuesta2 !== null && respuesta2.value === "Right Fielder") {
+                respuestasCorrectas++;
+            }
+
+            // Mostrar resultado
+            let resultado = document.getElementById("resultado");
+            resultado.innerHTML = `Has respondido correctamente ${respuestasCorrectas} de 2 preguntas.`;
+
+            // Cambiar color del botón si todas las respuestas son correctas
+            let botonCalificar = document.querySelector('.button-calificar');
+            if (respuestasCorrectas === 2) {
+                botonCalificar.style.backgroundColor = '#4CAF50';
+            } else {
+                botonCalificar.style.backgroundColor = '#f44336';
+            }
+        }
+
+        const nextButton = document.getElementById('next-button');
+const previousButton = document.getElementById('previous-button');
+
+nextButton.addEventListener('click', function() {
+    window.location.href = 'Video3.html';
+});
+
+previousButton.addEventListener('click', function() {
+    window.location.href = 'Video2.html'; })
+        
+    </script>
+
+</body>
+</html>

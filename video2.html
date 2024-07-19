@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video a pantalla completa</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('image/banner-image.jpg') no-repeat center center/cover;
+        }
+        #video-container {
+            position: relative;
+            width: 80vw; /* Ancho igual al 80% del ancho de la ventana */
+            height: 80vh; /* Altura igual al 80% de la altura de la ventana */
+        }
+        #video-background {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Para cubrir todo el contenedor */
+        }
+        .control-button {
+            position: absolute;
+            bottom: 20px; /* Ajustamos la distancia desde abajo */
+            background-color: #ba0c2f;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #play-button {
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -40px;
+        }
+        #next-button {
+            right: 0px;
+        }
+        #previous-button {
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video id="video-background">
+            <source src="video/Video2.mp4" type="video/mp4">
+            <!-- Agrega aquí más elementos <source> para otros formatos de video -->
+            Tu navegador no soporta el elemento <code>video</code>.
+        </video>
+        <button id="play-button" class="control-button">Play</button>
+        <button id="next-button" class="control-button">Siguiente</button>
+        <button id="previous-button" class="control-button">Anterior</button>
+    </div>
+
+    <script>
+        const video = document.getElementById('video-background');
+        const playButton = document.getElementById('play-button');
+        const nextButton = document.getElementById('next-button');
+        const previousButton = document.getElementById('previous-button');
+
+        playButton.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                playButton.textContent = 'Pause';
+            } else {
+                video.pause();
+                playButton.textContent = 'Play';
+            }
+        });
+
+        nextButton.addEventListener('click', function() {
+            window.location.href = 'Quiz2.html';
+        });
+
+        previousButton.addEventListener('click', function() {
+            window.location.href = 'Quiz1.html';
+        });
+    </script>
+</body>
+</html>

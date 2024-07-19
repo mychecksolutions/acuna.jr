@@ -11,7 +11,10 @@ document.getElementById('startButton').addEventListener('click', function() {
     newOverlay.classList.add('overlay');
     newOverlay.innerHTML = "<h2>¡Comienza el juego!</h2><p>Gira la rueda del mouse hacia delante para ver el video.</p>";
     document.body.appendChild(newOverlay);
-
+    document.getElementById('miBoton').addEventListener('click', function() {
+        window.location.href = 'video.html';
+      });
+      
     // Mostrar video al hacer scroll hacia delante
     window.addEventListener('wheel', function(event) {
         if (event.deltaY > 0) {
