@@ -3,17 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Ronald Acuña Jr</title>
+    <title>Ronald Acuña Jr</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="https://builds.mlbstatic.com/mlb.com/builds/site-core/1712247535855/dist/images/favicon.png">
+
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espacio entre los botones */
+            margin-top: 20px; /* Margen superior para separar del título */
+        }
+    </style>
+
+    <script>
+        function redirectToVideo(lang) {
+            if (lang === 'es') {
+                window.location.href = 'video.html';
+            } else if (lang === 'en') {
+                window.location.href = 'video.html';
+            } else {
+                alert('Language not supported');
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <div class="overlay">
-            <h1>Simulador Ronald Acuña Jr</h1>
-            <button id="startButton">Start</button>
+            <h1>A pasos de Ser Leyenda</h1>
+            <h2>Eligue el idioma</h2>
+            <div class="button-container">
+                <button id="startButton" onclick="redirectToVideo('es')">Español</button>
+                <button id="startButtonEn" onclick="redirectToVideo('en')">English</button>
+            </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
